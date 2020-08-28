@@ -1,0 +1,9 @@
+ <input type="button" value="Login" v-on:click="doIt">
+    <br>
+    <!--v-bind是一种与元素的属性相关的，比如说src和title和class等-->
+    <button v-on:click="pagination_sub">-</button>
+    <span>{{ num }}</span>
+    <button v-on:click="pagination_add">+</button>
+    <img v-show="isShow" src="./img/图片1.jpg" alt="">
+    <br>
+    <input type="button" v-on:click="changeIsShow" value="显示或隐藏">

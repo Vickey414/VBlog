@@ -1,0 +1,174 @@
+/* =======================================================
+*
+* 	Template Style 
+*
+* ======================================================= */
+body {
+  font-family: "Work Sans", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #828282;
+  background: #fff;
+}
+
+.title {
+    height: 60px;
+    position:relative;
+    }
+
+.title ul{
+    list-style-type:none;
+    padding: 0px;
+    margin-right:60px;
+    float:right;
+    position:relative;
+    }
+.title ul li{
+    width:160px;
+    height:56px;
+    text-align:center;
+    float:left;
+    font-size:15px
+    }
+.title ul a:hover{  color:  #828282; }
+.title .move{
+    height: 4px;
+    width: 160px;
+    border-top: 3px solid  #828282;/*只需要将上边显示出来*/
+    position: absolute;
+    left: 60;
+    top: 52px;
+    transition: left .2s ease-in-out 0s;/*包含四个过度属性：执行变换属性、执行时间、速率、延迟*/
+    -webkit-transition: left .2s ease-in-out 0s;/*chrome和safari*/
+    -moz-transition: left .2s ease-in-out 0s;/*firefox*/
+    -o-transition: left .2s ease-in-out 0s;/*opera*/ }
+li:nth-child(1):hover~ .move{    /*li元素的父元素的第一个子元素，当鼠标停留其上时，move元素的left属性改变*/
+   left: 0px; }
+li:nth-child(2):hover~ .move{     left: 110px; }
+li:nth-child(3):hover~ .move{     left: 220px; }
+
+.motto{
+    z-index: 12;
+    position: absolute;
+    bottom: 0;
+    padding: 30px;
+    }
+
+h3{
+    color: #fff;
+    font-weight: 400;
+    font-family: "Work Sans";
+}
+
+
+span{
+    color: #fff;
+    font-weight: 400;
+    font-family: "Work Sans";
+}
+
+.page_left{
+    position:fixed;
+    width:25%;
+    height:100%;
+    top:0;
+    left:0;
+    bottom:0;
+    z-index:555;
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position:center
+    }
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    width:25%;
+    height:100%;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.left_overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    width:25%;
+    height:100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+.right_overlay {
+    position: absolute;
+    top: 100px;
+    bottom: 0;
+    right: 0;
+    z-index: 10;
+    width:75%;
+    height:100%;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+
+.greeting{
+    left: 20px;
+    top: 120px;
+    position: absolute;
+    color: #fff;
+    font-weight: 400;
+    font-family: "Work Sans"
+    z-index: 222;
+    }
+
+.page_right{
+    margin-left:25%;
+    height:100%;
+    position:relative;
+    z-index:999;
+    }
+
+.entry{
+    float:left;
+    width:100%;
+    padding:40px;
+    border-bottom:1px;
+    solid #f2f2f2;
+    }
+
+.post .entry > div {
+    width: 77%;
+    float: left;
+    height:160px;
+    padding:10px;
+    margin-left:5%;
+    margin-right: 5%;
+    margin-top: 0px;
+}
+.post.entry.padding{
+    padding:50px;
+    }
+
+.page_right.post.entry > div post-date{
+    color:#b3b3b3;
+    margin-bottom:10px;
+    display:block;
+    text-transform:uppercase;
+    font-weight:100;
+    letter-spacing: .05em}
+
+page_right.post .entry > div a {
+  color: #000;
+}
+page_right.post .entry > div a:hover {
+  color: #FC5185;
+}
+page_right.post .entry > div h2 {
+  margin-bottom: 10px;
+  font-weight: 100;
+}

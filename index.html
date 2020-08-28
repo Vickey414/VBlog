@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+    <script src="vue.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!--Theme style-->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="blog">
+    <div class="page_left" style="background-image:url(img/background.jpg) ">
+    <div class="overlay"></div>
+        <div class="greeting">
+            <h2>HI I'M VICKEY...</h2>
+        </div>
+        <div class="motto">
+            <h3>Interesting Mindset, Learners' World.</h3>
+            <span >Established on {{brief.birth}}</span>
+        </div>
+    </div>
+
+
+    <!--Article area-->
+    <div class="page_right">
+        <div class="title">
+        <ul>
+            <li v-html="title.title01"></li>
+            <li v-html="title.title02"></li>
+            <li v-html="title.title03"></li>
+            <li class="move"></li>
+        </ul>
+        </div>
+        <div class="post">
+            <div class="entry">
+            <img src="" alt="">
+            <div>
+                <span style="color:#828282">{{article.date}}</span>
+                <h3> <a href="">{{article.title}}</a> </h3>
+                <p>{{article.content}}</p>
+            </div>
+            <div>
+                <span style="color:#828282">{{article.date}}</span>
+                <h3> <a href="">{{article.title}}</a> </h3>
+                <p>{{article.content}}</p>
+            </div>
+            <div>
+                <span style="color:#828282">{{article.date}}</span>
+                <h3> <a href="">{{article.title}}</a> </h3>
+                <p>{{article.content}}</p>
+            </div>
+            <div>
+                <span style="color:#828282">{{article.date}}</span>
+                <h3> <a href="">{{article.title}}</a> </h3>
+                <p>{{article.content}}</p>
+            </div>
+            <div>
+                <span style="color:#828282">{{article.date}}</span>
+                <h3> <a href="">{{article.title}}</a> </h3>
+                <p>{{article.content}}</p>
+            </div>
+            <div>
+                <span style="color:#828282">{{article.date}}</span>
+                <h3> <a href="">{{article.title}}</a> </h3>
+                <p>{{article.content}}</p>
+            </div>
+            <div>
+                <span style="color:#828282">{{article.date}}</span>
+                <h3> <a href="">{{article.title}}</a> </h3>
+                <p>{{article.content}}</p>
+            </div>
+            <div>
+                <span style="color:#828282">{{article.date}}</span>
+                <h3> <a href="">{{article.title}}</a> </h3>
+                <p>{{article.content}}</p>
+            </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script type="text/javascript">
+    var app = new Vue({
+    el: '#blog', <!--el组件的作用是挂载点，其作用的范围是同个div-->
+    data :{
+        message:"Good Day,Vickey",
+        brief:{
+            name: "Vickey",
+            content: "Learning Tools,Interesting Mindset",
+            birth:"2020-03-16"
+        },
+        title:{
+        title01:"<a href='http://www.baidu.com'>DAILY HIGHLIGHT</a>",
+        title02:"<a href='http://www.baidu.com'>TECH WORLD</a>",
+        title03:"<a href='http://www.baidu.com'>SHARING</a>",
+        },
+        num: 1,
+        isShow : false,
+        isActive: false,
+        article:{
+        date:"2020年3月17日",
+        title:"How to become my friend?",
+        content:"How to be a friend of me"
+            },
+            },
+    methods:{
+        doIt:function(){
+            alert("Successfully Login"); <!--事件的方法方式-->
+            },
+        pagination_add:function(){
+            // console.log('pagination_add');
+            if(this.num<10){
+                this.num++;}
+            else{
+                alert("Maximum Page")}
+        },
+         pagination_sub:function(){
+            // console.log('pagination_sub');
+            if(this.num>0){
+                this.num--;}
+            else{
+                alert("Minimum Page")}
+        },
+        changeIsShow:function(){
+            this.isShow = !this.isShow
+            },
+    }
+    });
+    var app = new Vue({
+        el: "theme",
+        data :{
+        imgArr:[
+        "./img/0.jpg",
+        "./img/1.jpg",
+        "./img/2.jpg"
+        ],
+        index:0,
+        },
+        method:{
+            pre:function(){
+                this.index--},
+            next:function(){
+                this.index++
+            }
+        }
+    });
+</script>
+</body>
+</html>

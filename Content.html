@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>blog</title>
+    <script src="vue.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!--Theme style-->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="blog">
+    <div class="page_left" style="background-image:url(img/image_1.jpg) ">
+      <div class="left_overlay"></div>
+    </div>
+
+    <!--Article area-->
+    <div class="page_right">
+      <div class="right_overlay"></div>
+        <div class="title">
+        <ul>
+            <li v-html="title.title01"></li>
+            <li v-html="title.title02"></li>
+            <li v-html="title.title03"></li>
+            <li class="move"></li>
+        </ul>
+        </div>
+        <div class="post">
+            <div class="entry">
+            <h1>Blog Theme</h1>
+            <div>
+                <span style="color:#828282">{{article.date}}</span>
+                <h3> <a href="">{{article.title}}</a> </h3>
+               <p>Yet there is an uneasy feeling that a flurry of rate cuts may not be the solution to this downturn. In part that reflects the fact that they are already so low. A golden rule of crisis-fighting is that in order to be credible you should always have more ammunition available. In 2008-10 the global composite policy rate fell by three percentage points. Today, outside America, rich-world interest rates are close to, at, or below zero. Even the Fed has limited scope to cut much further—one reason, perhaps, why share prices failed to revive in the hours after its latest move.
+
+然而人们还是心神不宁，担心一连串降息可能无法逆转此次衰退。这种不安在一定程度上源自利率已然很低的事实。对抗危机的黄金法则是，要想策略令人信服，就得始终拥有更多弹药。从2008年到2010年，全球综合政策利率下降了三个百分点。如今，美国以外的富裕国家的利率不是接近零，就是已经为零，甚至低于零。就连美联储也缺乏进一步大幅降息的空间，这也许是在它最近一次降息后几小时内股价没有反弹的原因之一。
+
+The tension also stems from the peculiarity of the shock that the economy faces—one that involves demand, supply and confidence effects. The duration of the disruption mainly depends on the severity of the outbreak and the public-health measures undertaken to contain it. Given those uncertainties, policymakers know that while interest-rate cuts are an option, they also need fiscal and financial measures to help business and individuals withstand a temporary but excruciating cash crunch.
+
+这种紧张情绪还源于这一次经济面临的冲击具有特殊性——它对需求、供给和信心都有影响。冲击持续的时间主要取决于疫情的严重程度以及为遏制疫情采取的公共卫生措施。鉴于这些不确定因素，政策制定者明白，虽然他们可以选择降息，但也需要采取财政和金融措施，帮助企业和个人抵抗暂时却严峻的现金危机。
+
+One way the virus hurts the economy is by disrupting the supply of labour, goods and services. People fall ill. Schools close, forcing parents to stay at home. Quarantines might force workplaces to shut entirely. This is accompanied by sizeable demand effects. Some are unavoidable: sick people go out less and buy fewer goods. Public-health measures, too, restrict economic activity. Putting more money into consumers’ hands will do little to offset this drag, unlike your garden-variety downturn. Activity will resume only once the outbreak runs its course.
+
+病毒损害经济的方式之一是干扰劳动力、商品以及服务的供应。人们病倒；学校停课，迫使父母们也待在家里。隔离措施可能会强制工作场所完全关闭。与此相伴的是相当大的需求效应。有些是不可避免的：患病的人出门少，买东西也少。公共卫生措施也限制了经济活动。与一般的经济低迷不同的是，让消费者拿到更多钱并不能抵消疫情的拖累。经济活动只有在疫情结束之后才能恢复。
+
+Then there are nasty spillovers. Both companies and households will face a cash crunch. Consider a sample of 2,000-odd listed American firms. Imagine that their revenues dried up for three months but that they had to continue to pay their fixed costs, because they expected a sharp recovery. A quarter would not have enough spare cash to tide them over, and would have to try to borrow or retrench. Some might go bust. Researchers at the Bank for International Settlements, a club of central banks, find that over 12% of firms in the rich world generate too little income to cover their interest payments.
+
+然后是严重而棘手的溢出效应。企业和家庭都将面临现金紧张。来看看2000多家美国上市公司构成的样本。想象一下它们在三个月里没有收入，但仍必须继续支付固定成本，因为它们期望经济会强劲复苏。其中四分之一的公司没有多余的资金来渡过难关，只能尝试去贷款或紧缩开支。有些可能会破产。央行组织国际清算银行的研究人员发现，富裕国家和地区中超过12％的公司无法产生足够的收入来支付利息。
+
+Many workers do not have big safety buffers either. They risk losing their incomes and their jobs while still having to make mortgage repayments and buy essential goods. More than one in ten American adults would be unable to meet a $400 unexpected expense, equivalent to about two days’ work at average earnings, according to a survey by the Federal Reserve. Fearing a hit to their pockets, people could start to hoard cash rather than spend, further worsening firms’ positions.
+
+许多劳动者也没有多少安全缓冲。他们可能会失去收入和工作，但仍然要还按揭及购买生活必需品。美联储的一项调查显示，超过十分之一的美国成年人无法负担400美元的意外开支，按平均收入水平计算这大概相当于两天的工资。由于害怕钱包承压，人们可能会开始多攒钱少花钱，这将进一步恶化企业的状况。
+
+Modelling the resulting hit to economic activity is no easy task. In China, which is a month ahead of the rest of the world in terms of the outbreak, a survey of purchasing managers shows that manufacturing output in February sank to its lowest levels since factory bosses were first surveyed in 2004. It seems likely that GDP will contract in the first quarter for the first time since the death of Mao Zedong in 1976.
+
+对经济活动因此受到的冲击建模并非易事。中国爆发疫情比世界其他地区早了一个月。在那里，一项针对采购经理的调查显示，2月份制造业产出跌至2004年首次启动该调查以来的最低水平。自1976年毛泽东去世以来，GDP很可能第一次在第一季度出现萎缩。
+
+Forecasters are pencilling in sharp falls in output elsewhere (see chart 1). Goldman Sachs, a bank, reckons global GDP will shrink at an annualised rate of 2.5% in the first quarter. With luck the slump will end once the virus stops spreading. But even if that happens the speed and size of the economic bounce-back also depends on the extent to which those costly spillovers are avoided.
+
+预测机构预计世界其他地方的产出将急剧下降（见图表1）。高盛估计，第一季度全球GDP的年化收缩率将达2.5％。幸运的话，衰退将在病毒停止传播时止步。但即便如此，经济反弹的速度和规模也取决于能在多大程度上避免那些代价高昂的溢出效应</p>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<script type="text/javascript">
+    var app = new Vue({
+    el: '#blog', <!--el组件的作用是挂载点，其作用的范围是同个div-->
+    data :{
+        message:"Good Day,Vickey",
+        brief:{
+            name: "Vickey",
+            content: "Learning Tools,Interesting Mindset",
+            birth:"2020-03-16"
+        },
+        title:{
+        title01:"<a href='http://www.baidu.com'>DAILY HIGHLIGHT</a>",
+        title02:"<a href='http://www.baidu.com'>TECH WORLD</a>",
+        title03:"<a href='http://www.baidu.com'>SHARING</a>",
+        },
+        num: 1,
+        isShow : false,
+        isActive: false,
+        article:{
+        date:"2020年3月17日",
+        title:"How to become my friend?",
+        content:"How to be a friend of me"
+            },
+            },
+    methods:{
+        doIt:function(){
+            alert("Successfully Login"); <!--事件的方法方式-->
+            },
+        pagination_add:function(){
+            // console.log('pagination_add');
+            if(this.num<10){
+                this.num++;}
+            else{
+                alert("Maximum Page")}
+        },
+         pagination_sub:function(){
+            // console.log('pagination_sub');
+            if(this.num>0){
+                this.num--;}
+            else{
+                alert("Minimum Page")}
+        },
+        changeIsShow:function(){
+            this.isShow = !this.isShow
+            },
+    }
+    });
+    var app = new Vue({
+        el: "theme",
+        data :{
+        imgArr:[
+        "./img/0.jpg",
+        "./img/1.jpg",
+        "./img/2.jpg"
+        ],
+        index:0,
+        },
+        method:{
+            pre:function(){
+                this.index--},
+            next:function(){
+                this.index++
+            }
+        }
+    });
+</script>
+</body>
+</html>
