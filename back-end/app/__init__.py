@@ -6,22 +6,22 @@ from flask_migrate import Migrate
 
 # Flask-SQLAlchemy plugin
 db = SQLAlchemy()
-
 # Flask-Migrate plugin
 migrate = Migrate()
 
-# _ini_.py的两个作用为：一是包含应用工厂，二是告诉python将文件夹应当视为一个包
-
 
 def create_app(config_class=Config):
-    # 初始化项目
     app = Flask(__name__)
     app.config.from_object(config_class)
-    # enable CORS
+
+    # Enable CORS
     CORS(app)
+    # Init Flask-SQLAlchemy
     db.init_app(app)
+    # Init Flask-Migrate
     migrate.init_app(app, db)
-    # 注册blueprint
+
+    # 注册 blueprint
     from app.api import bp as api_bp
     app.register_blueprint(api_bp, url_prefix='/api')
 
