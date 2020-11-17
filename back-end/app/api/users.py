@@ -3,7 +3,7 @@ import re
 from flask import request, jsonify, url_for
 from app import db
 from app.api import bp
-#from app.api.auth import token_auth
+from app.api.auth import token_auth
 from app.api.errors import bad_request
 from app.models import User
 
@@ -44,6 +44,7 @@ def create_user():
 
 
 @bp.route('/users/', methods=['GET'])
+@token_auth.login_required
 def get_users():
     '''返回所有用户的集合'''
     page = request.args.get('page', 1, type=int)
@@ -53,12 +54,14 @@ def get_users():
 
 
 @bp.route('/users/<int:id>', methods=['GET'])
+@token_auth.login_required
 def get_user(id):
     '''返回一个用户的信息'''
     return jsonify(User.query.get_or_404(id).to_dict())
 
 
 @bp.route('/users/<int:id>', methods=['PUT'])
+@token_auth.login_required
 def update_user(id):
     '''修改一个用户'''
     user = User.query.get_or_404(id)
@@ -90,6 +93,7 @@ def update_user(id):
 
 
 @bp.route('/users/<int:id>', methods=['DELETE'])
+@token_auth.login_required
 def delete_user(id):
     '''删除一个用户'''
     pass

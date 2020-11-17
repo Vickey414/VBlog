@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Template</title>
+    <link href="/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <script type="text/javascript" src="Vblog/vue.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <!--contact-from-->
+    <div id="login">
+        <form action="#" novalidate>
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" placeholder="Enter your Name" v-model="username"><br>
+            <label for="password">Password</label>
+            <input type="text" name="password" id="password" placeholder="Enter your Password" v-model="password"><br>
+            <br>
+        <button type="button" v-on:click="login">Apply</button>
+    </form>
+    </div>
+<script type="text/javascript">
+    var login = new Vue({
+        el: '#login',
+        data:{
+            username: '',
+            password: ''
+        },
+        methods: {
+            login: function () {
+               axios.post('http://127.0.0.1:5000/login',{
+                   username: this.username,
+                   password: this.password
+               }).then(function (response) {
+                   console.log(response.status)
+                   // 其实是应该走后台路由
+                   if(parseInt(response.status) === 200){
+                       window.location.href = 'index'
+                   }
+               }).catch(function (error) {
+                   console.log(error.response)
+               })
+
+            }
+        }
+</script>
+</body>
+</html>

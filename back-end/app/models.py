@@ -1,6 +1,9 @@
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask import url_for
+from flask import url_for,current_app
 from app import db
+import jwt
+from datetime import datetime, timedelta
+import os
 
 
 class PaginatedAPIMixin(object):
@@ -64,3 +67,27 @@ class User(PaginatedAPIMixin, db.Model):
         if new_user and 'password' in data:
             self.set_password(data['password'])
 
+    def get_jwt(self, expires_in=600):
+        now = datetime.utcnow()
+        payload = {
+            'user_id': self.id,
+            'name': self.name if self.name else self.username,
+            'exp': now + timedelta(seconds=expires_in),
+            'iat': now
+        }
+        return jwt.encode(
+            payload,
+            current_app.config['SECRET_KEY'],
+            algorithm='HS256').decode('utf-8')
+
+    @staticmethod
+    def verify_jwt(token):
+        try:
+            payload = jwt.decode(
+                token,
+                current_app.config['SECRET_KEY'],
+                algorithms=['HS256'])
+        except (jwt.exceptions.ExpiredSignatureError, jwt.exceptions.InvalidSignatureError) as e:
+            # Token过期，或被人修改，那么签名验证也会失败
+            return None
+        return User.query.get(payload.get('user_id'))
