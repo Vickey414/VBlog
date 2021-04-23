@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="/Vblog/css/style.css">
+</head>
+<body>
+<div class='auth-modal'>
+    <div class='auth-modal__header'>
+        <a class='auth-modal__header__logo' data-track-action='login' data-track-label='logo' href='/' title='Free Stock Photos'>
+            <svg xmlns="http://www.w3.org/2000/svg" width="32px" height="32px" viewBox="0 0 32 32">
+                <path d="M2 0h28a2 2 0 0 1 2 2v28a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2z" fill="#05A081"></path>
+                <path d="M13 21h3.863v-3.752h1.167a3.124 3.124 0 1 0 0-6.248H13v10zm5.863 2H11V9h7.03a5.124 5.124 0 0 1 .833 10.18V23z" fill="#fff"></path>
+            </svg>
+        </a>
+        <a class='js-auth-modal-signup auth-modal__header__signin' data-track-action='login' data-track-label='signp' href='/onboarding/' rel='nofollow'>
+            <div class='auth-modal__header__signin__text'>New to VBlog?</div>
+            <div class='auth-modal__header__signin__text--sign-in'>
+                <span class="translation_missing" title="translation missing: en-US.components.auth.navigation_header.join">Join</span></div>
+            <div class='rd__button rd__button--jumbo rd__button--white'>
+                <span class="translation_missing" title="translation missing: en-US.components.auth.navigation_header.join">Join</span></div>
+        </a>
+    </div>
+    <div class='rd__modal rd__modal--open' data-no-close id='auth-modal'>
+    <div class='auth-modal__overlay rd__modal__overlay rd__modal__overlay--centered'>
+        <div class='auth-modal__modal rd__modal__content rd__modal__content--small' role='dialog' tabindex='0'>
+            <div class='auth-modal__title'>Welcome Back To VBlog</div>
+            <div class='auth-modal__form'>
+                <form class="l-row form" id="new_user" action="/login/" accept-charset="UTF-8" method="post">
+                    <!--确定下面这个input的功能-->
+                    <input type="hidden" name="authenticity_token" value=""/>
+                    <!--下面是账号和密码-->
+                    <div class='auth-modal__form__inputs'>
+                        <div class='rd__text-input-group--vertical'>
+                            <div class='rd__text-input rd__text-input--bordered'>
+                                <input autofocus="autofocus" placeholder="Email" type="email" value="" name="user[email]" id="user_email" />
+                            </div>
+                            <div class='rd__text-input rd__text-input--bordered'>
+                                <input required="required" autocomplete="off" placeholder="Password" type="password" name="user[password]" id="user_password" />
+                            </div>
+                            <input class="js-anonymous-id" type="hidden" name="user[anonymous_id]" id="user_anonymous_id" />
+                        </div>
+                    </div>
+                    <div class='auth-modal__form__submit'>
+                        <button class='rd__button rd__button--jumbo rd__button--full-width' type='submit'>Login</button>
+                    </div>
+                </form><a class='auth-modal__form__subline' href='/password/new/'>Forgot your password?</a>
+            </div>
+        </div>
+    </div>
+    </div>
+
+</div>
+</body>
+</html>

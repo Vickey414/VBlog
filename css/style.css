@@ -3,14 +3,256 @@
 * 	Template Style 
 *
 * ======================================================= */
-body {
-  font-family: "Work Sans", Arial, sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.7;
-  color: #828282;
-  background: #fff;
+body, html {
+    font-family: -apple-system,BlinkMacSystemFont,segoe ui,roboto,oxygen,cantarell,helvetica neue,ubuntu,sans-serif;
+    color: #1a1a1a;
+    font-size: 14px;
+    height: 100%;
+    margin: 0;
+    background-color: #fff;
 }
+.auth-modal {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+.auth-modal__header {
+    top: 0;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+}
+.auth-modal__header {
+    position: fixed;
+    left: 0;
+    right: 0;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 1rem;
+    z-index: 111;
+}
+.auth-modal__header__signin {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    text-decoration: none;
+}
+.auth-modal__header__signin>*:not(:last-child) {
+    margin-right: 1rem;
+}
+.auth-modal__header__signin__text {
+    display: block;
+    font-size: 16px;
+    line-height: 25px;
+    font-weight: 300;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: #fff;
+}
+.auth-modal__header__signin__text--sign-in {
+    display: none;
+}
+.rd__modal--open {
+    visibility: visible;
+}
+.auth-modal__overlay {
+    background: rgba(0,0,0,.5);
+}
+
+.rd__modal__overlay--centered {
+    padding-top: 45px;
+}
+.rd__modal__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    background-color: rgba(12,15,19,.9);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    z-index: 109;
+}
+.rd__modal__overlay--centered .rd__modal__content {
+    margin-top: auto;
+    margin-bottom: auto;
+    position: relative;
+}
+
+.auth-modal__modal {
+    max-width: 485px;
+    padding: 2.5rem;
+    max-height: calc(100% - 8rem);
+    overflow: auto;
+}
+
+.rd__modal__content--small {
+    max-width: 600px;
+    padding: 24px;
+}
+
+.rd__modal__content {
+    position: absolute;
+    max-width: 1200px;
+    width: calc(100vw - (80px * 2));
+    outline: none;
+    background: #fff;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 1.15rem;
+    margin-top: 2.3rem;
+}
+.auth-modal__title {
+    display: block;
+    font-size: 36px;
+    line-height: 48px;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-align: center;
+}
+.auth-modal__form {
+    margin-top: 1.5rem;
+}
+.l-row {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+form {
+    display: block;
+    margin-top: 0em;
+}
+input, button, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+.auth-modal__form__inputs {
+    margin-bottom: 1.25rem;
+}
+.rd__text-input-group--vertical>.rd__text-input-group--horizontal:not(:last-child),.rd__text-input-group--vertical>.rd__text-input:not(:last-child) {
+    margin-bottom: .5rem;
+}
+.rd__text-input {
+    max-width: 100%;
+}
+.rd__text-input--bordered textarea, .rd__text-input--bordered input {
+    border: 1px solid #d3d3d3;
+}
+.rd__text-input>textarea, .rd__text-input>input {
+    display: block;
+    font-size: 16px;
+    line-height: 25px;
+    font-weight: 300;
+    margin-top: 0;
+    margin-bottom: 0;
+    border: none;
+    border-radius: 2px;
+    padding: .6rem 1.15rem;
+    padding-right: 0;
+    -webkit-appearance: none;
+}
+
+.rd__text-input textarea, .rd__text-input input {
+    width: 100%;
+}
+.rd__text-input textarea, .rd__text-input input {
+    background: #fff;
+    color: #1a1a1a;
+    border-color: #1a1a1a;
+}
+
+input[type="hidden" i] {
+    display: none;
+    appearance: initial;
+    background-color: initial;
+    cursor: default;
+    padding: initial;
+    border: initial;
+}
+input {
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: -internal-light-dark(black, white);
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    appearance: auto;
+    background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    margin: 0em;
+    font: 400 13.3333px Arial;
+    padding: 1px 2px;
+    border-width: 2px;
+    border-style: inset;
+    border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+    border-image: initial;
+}
+.auth-modal__form__submit {
+    margin-bottom: .5rem;
+}
+.rd__button--full-width {
+    width: 100%;
+}
+.rd__button--jumbo {
+    padding: 1rem 1.5rem;
+    font-weight: 700;
+}
+.rd__button {
+    background: #05a081;
+    color: #fff;
+    border-color: #05a081;
+    line-height: 1;
+    position: relative;
+    display: -webkit-inline-box;
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    padding: 11px 24px;
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 5%);
+}
+
+.auth-modal__form__subline {
+    display: block;
+    font-size: 12px;
+    line-height: 19px;
+    font-weight: 300;
+    margin-top: 0;
+    margin-bottom: 0;
+    text-align: center;
+    color: #5e5e5e;
+    margin-top: 2rem;
+    text-decoration: none;
+}
+
+
 
 .title {
     height: 60px;
