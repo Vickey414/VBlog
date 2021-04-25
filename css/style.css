@@ -16,6 +16,24 @@ body, html {
     width: 100vw;
     overflow: hidden;
 }
+.auth-modal__many-photos {
+    padding-top: 1rem;
+    max-width: 1200px;
+    margin: auto;
+}
+.photos {
+    display: flex;
+    width: 100%;
+    position: relative;
+}
+.photos__column {
+    display: block;
+    flex-basis: 0;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    flex-shrink: 1;
+    margin-right: 0rem;
+}
 .auth-modal__header {
     top: 0;
     -webkit-box-pack: justify;
@@ -83,6 +101,11 @@ body, html {
     -webkit-overflow-scrolling: touch;
     z-index: 109;
 }
+.auth-modal__overlay .auth-modal__modal {
+    margin-top: 0;
+    max-width: 440px;
+    height: 350px;
+}
 .rd__modal__overlay--centered .rd__modal__content {
     margin-top: auto;
     margin-bottom: auto;
@@ -93,11 +116,20 @@ body, html {
     max-width: 485px;
     padding: 2.5rem;
     max-height: calc(100% - 8rem);
-    overflow: auto;
 }
-
+.rd__modal__content {
+    position: absolute;
+    max-width: 1200px;
+    width: calc(100vw - (80px * 2));
+    outline: none;
+    background: #fff;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 1.15rem;
+    margin-top: 2.3rem;
+}
 .rd__modal__content--small {
-    max-width: 600px;
+    max-width: 400px;
     padding: 24px;
 }
 
@@ -139,13 +171,16 @@ input, button, select, textarea {
 }
 
 .auth-modal__form__inputs {
-    margin-bottom: 1.25rem;
+    margin-top:5.25rem;
+    margin-bottom: 2.25rem;
+    left: 4px;
 }
 .rd__text-input-group--vertical>.rd__text-input-group--horizontal:not(:last-child),.rd__text-input-group--vertical>.rd__text-input:not(:last-child) {
     margin-bottom: .5rem;
 }
 .rd__text-input {
-    max-width: 100%;
+    max-width: 80%;
+    margin-left: 40px;
 }
 .rd__text-input--bordered textarea, .rd__text-input--bordered input {
     border: 1px solid #d3d3d3;
@@ -206,6 +241,8 @@ input {
 }
 .auth-modal__form__submit {
     margin-bottom: .5rem;
+    max-width: 50%;
+    margin-left: 110px;
 }
 .rd__button--full-width {
     width: 100%;
@@ -239,6 +276,32 @@ input {
     box-shadow: 0 1px 1px 0 rgb(0 0 0 / 5%);
 }
 
+.sy__button{
+    background: #05a081;
+    color: #fff;
+    border-color: #05a081;
+    line-height: 1;
+    top:20px;
+    right:90px;
+    display: -webkit-inline-box;
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 5%);
+          }
+
+
 .auth-modal__form__subline {
     display: block;
     font-size: 12px;
@@ -262,12 +325,12 @@ input {
 .title ul{
     list-style-type:none;
     padding: 0px;
-    margin-right:60px;
+    margin-right:200px;
     float:right;
     position:relative;
     }
 .title ul li{
-    width:160px;
+    margin-right:20px;
     height:56px;
     text-align:center;
     float:left;
