@@ -1,5 +1,5 @@
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask import url_for,current_app
+from flask import url_for, current_app
 from app import db
 import jwt
 from datetime import datetime, timedelta
