@@ -37,6 +37,9 @@ class User(PaginatedAPIMixin, db.Model):
     email = db.Column(db.String(120), index=True, unique=True)
     password_hash = db.Column(db.String(128))  # 不保存原始密码
 
+    token = db.Column(db.String(32), index=True, unique=True)
+    token_expiration = db.Column(db.DateTime)
+
     def __repr__(self):
         return '<User {}>'.format(self.username)
 
@@ -47,6 +50,8 @@ class User(PaginatedAPIMixin, db.Model):
         return check_password_hash(self.password_hash, password)
 
     # 后端使用的都是一个Users的对象，而返回响应给前端时，需要传递一个json的文件
+    # 只有当用户请求自己的数据时才包含 email，使用 include_email 标志来确定该字段是否包含在字典中。
+    # 后续调用该方法返回字典，再用 flask.jsonify 将字典转换成 JSON 响应
     def to_dict(self, include_email=False):
         data = {
             'id': self.id,
@@ -91,3 +96,23 @@ class User(PaginatedAPIMixin, db.Model):
             # Token过期，或被人修改，那么签名验证也会失败
             return None
         return User.query.get(payload.get('user_id'))
+
+    def get_token(self, expires_in=3600):
+        now = datetime.utcnow()
+        if self.token and self.token_expiration > now + timedelta(seconds=60):
+            return self.token
+        self.token = base64.b64encode(os.urandom(24)).decode('utf-8')
+        self.token_expiration = now + timedelta(seconds=expires_in)
+        db.session.add(self)
+        return self.token
+
+    def revoke_token(self):
+        self.token_expiration = datetime.utcnow() - timedelta(seconds=1)
+
+    @staticmethod
+    def check_token(token):
+        user = User.query.filter_by(token=token).first()
+        if user is None or user.token_expiration < datetime.utcnow():
+            return None
+        return user
+
